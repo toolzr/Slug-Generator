@@ -12,41 +12,43 @@
     <link rel="canonical" href="https://toolzr.com/slug-generator">
 </head>
 <body>
-    <h1>Slugify: Create SEO-Friendly Slugs</h1>
+<h1>Slugify: Create SEO-Friendly Slugs</h1>
 
-    <label for="text-input">Enter Your Text:</label>
-    <input id="text-input" type="text" placeholder="Example: How to login to a WordPress site.">
+<label for="text-input">Enter Your Text:</label>
+<input id="text-input" type="text" placeholder="Example: How to login to a WordPress site.">
 
-    <label for="separator-select">Choose Separator:</label>
-    <select id="separator-select">
-        <option value="-">Dash (-)</option>
-        <option value="_">Underscore (_)</option>
-    </select>
+<label for="separator-select">Choose Separator:</label>
+<select id="separator-select">
+<option value="-">Dash (-)</option>
+<option value="_">Underscore (_)</option>
+</select>
 
-    <button id="generate-slug">Generate Slug</button>
+<button id="generate-slug">Generate Slug</button>
 
-    <div>
-        <strong>Generated Slug:</strong>
-        <span id="generated-slug"></span>
-    </div>
+<div>
+<strong>Generated Slug:</strong>
+<span id="generated-slug"></span>
+</div>
 
-    <script>
-        document.getElementById('generate-slug').addEventListener('click', function() {
-            const text = document.getElementById('text-input').value;
-            const separator = document.getElementById('separator-select').value;
-            const slug = slugify(text, separator);
-            document.getElementById('generated-slug').textContent = slug;
-        });
+<p>This tool is brought to you by <a href="https://toolzr.com" target="_blank">Toolzr</a> and is open source, licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>. The online version can be found at <a href="https://toolzr.com/slug-generator" target="_blank">toolzr.com/slug-generator</a>.</p>
 
-        function slugify(text, separator = '-') {
-            return text
-                .toString()
-                .toLowerCase()
-                .trim()
-                .replace(/\s+/g, separator) // Replace spaces with the separator
-                .replace(/[^\w\-]+/g, '') // Remove all non-word chars
-                .replace(new RegExp('\\' + separator + '+', 'g'), separator); // Replace multiple separators with a single one
-        }
-    </script>
+<script>
+    document.getElementById('generate-slug').addEventListener('click', function() {
+        const text = document.getElementById('text-input').value;
+        const separator = document.getElementById('separator-select').value;
+        const slug = slugify(text, separator);
+        document.getElementById('generated-slug').textContent = slug;
+    });
+
+    function slugify(text, separator = '-') {
+        return text
+            .toString()
+            .toLowerCase()
+            .trim()
+            .replace(/\s+/g, separator) // Replace spaces with the separator
+            .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+            .replace(new RegExp('\\' + separator + '+', 'g'), separator); // Replace multiple separators with a single one
+    }
+</script>
 </body>
 </html>
