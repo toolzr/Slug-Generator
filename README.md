@@ -22,7 +22,7 @@ The online version of this tool is provided by Toolzr and can be found at [Toolz
 
 ### Local Usage
 
-For local usage or integration into your project, you can clone this repository and incorporate the slug generation functionality as needed.
+To use this tool offline or integrate it into your project, simply clone this repository and open `slug-generator.html` in your web browser. No additional setup is required.
 
 ```bash
 git clone https://github.com/toolzr/slug-generator.git
