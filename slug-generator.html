@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slugify: Create SEO-Friendly Slugs</title>
+    <meta name="description" content="Generate SEO-friendly URL slugs. Ideal for bloggers, content creators, and web developers aiming for better search engine rankings.">
+    <meta property="og:title" content="Slugify: Create SEO-Friendly Slugs with Toolzr's Slug Generator">
+    <meta property="og:description" content="Generate SEO-friendly URL slugs with Toolzr's Slugify. Ideal for bloggers, content creators, and web developers aiming for better search engine rankings.">
+    <meta property="og:url" content="https://toolzr.com/slug-generator">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://toolzr.com/assets/images/slug-generator.jpg">
+    <link rel="canonical" href="https://toolzr.com/slug-generator">
+</head>
+<body>
+    <h1>Slugify: Create SEO-Friendly Slugs</h1>
+
+    <label for="text-input">Enter Your Text:</label>
+    <input id="text-input" type="text" placeholder="Example: How to login to a WordPress site.">
+
+    <label for="separator-select">Choose Separator:</label>
+    <select id="separator-select">
+        <option value="-">Dash (-)</option>
+        <option value="_">Underscore (_)</option>
+    </select>
+
+    <button id="generate-slug">Generate Slug</button>
+
+    <div>
+        <strong>Generated Slug:</strong>
+        <span id="generated-slug"></span>
+    </div>
+
+    <script>
+        document.getElementById('generate-slug').addEventListener('click', function() {
+            const text = document.getElementById('text-input').value;
+            const separator = document.getElementById('separator-select').value;
+            const slug = slugify(text, separator);
+            document.getElementById('generated-slug').textContent = slug;
+        });
+
+        function slugify(text, separator = '-') {
+            return text
+                .toString()
+                .toLowerCase()
+                .trim()
+                .replace(/\s+/g, separator) // Replace spaces with the separator
+                .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+                .replace(new RegExp('\\' + separator + '+', 'g'), separator); // Replace multiple separators with a single one
+        }
+    </script>
+</body>
+</html>
